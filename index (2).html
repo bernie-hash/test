@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renaissance Art History</title>
+  <meta name="description" content="A short journey through the history of Renaissance art: its origins, its great masters and its lasting legacy.">
+  <style>
+    :root {
+      --parchment: #f4ead5;
+      --parchment-dark: #e8d9b5;
+      --ink: #2b1d12;
+      --ink-soft: #5a4632;
+      --gold: #b8862b;
+      --gold-light: #d9b35c;
+      --crimson: #7a1f1f;
+      --lapis: #1f3a68;
+      --shadow: rgba(43, 29, 18, 0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      background: var(--parchment);
+      color: var(--ink);
+      line-height: 1.7;
+      background-image:
+        radial-gradient(circle at 20% 10%, rgba(184, 134, 43, 0.08), transparent 40%),
+        radial-gradient(circle at 80% 90%, rgba(122, 31, 31, 0.06), transparent 40%);
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--ink);
+      border-bottom: 3px solid var(--gold);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 6px; list-style: none; flex-wrap: wrap; }
+
+    .nav-links a {
+      color: var(--parchment);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* ---------- Hero ---------- */
+    header.hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 16px;
+      background:
+        linear-gradient(rgba(43, 29, 18, 0.55), rgba(43, 29, 18, 0.75)),
+        radial-gradient(ellipse at center, var(--lapis) 0%, #0f1d36 70%);
+      color: var(--parchment);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header.hero::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 2px solid var(--gold);
+      outline: 1px solid rgba(217, 179, 92, 0.4);
+      outline-offset: 8px;
+      pointer-events: none;
+    }
+
+    .hero-content { max-width: 760px; position: relative; }
+
+    .hero .eyebrow {
+      color: var(--gold-light);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      font-weight: normal;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span { color: var(--gold-light); font-style: italic; }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #e9dcc0;
+      margin-bottom: 36px;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 1.6rem;
+      letter-spacing: 12px;
+      margin: 14px 0;
+    }
+
+    .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      border: 2px solid var(--gold);
+      color: var(--parchment);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover, .btn.primary { background: var(--gold); color: var(--ink); }
+    .btn.primary:hover { background: transparent; color: var(--parchment); }
+
+    /* ---------- Sections ---------- */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 16px;
+      scroll-margin-top: 60px;
+    }
+
+    .section-title { text-align: center; margin-bottom: 50px; }
+
+    .section-title .number {
+      display: block;
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: normal;
+      color: var(--crimson);
+    }
+
+    .section-title .divider {
+      width: 120px;
+      height: 2px;
+      background: var(--gold);
+      margin: 18px auto 0;
+      position: relative;
+    }
+
+    .section-title .divider::after {
+      content: "\2756";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--parchment);
+      color: var(--gold);
+      padding: 0 10px;
+      font-size: 1rem;
+    }
+
+    .intro-text {
+      max-width: 780px;
+      margin: 0 auto 50px;
+      text-align: center;
+      font-size: 1.12rem;
+      color: var(--ink-soft);
+    }
+
+    .intro-text::first-letter {
+      float: left;
+      font-size: 3.6rem;
+      line-height: 0.9;
+      padding: 6px 8px 0 0;
+      color: var(--crimson);
+    }
+
+    /* ---------- Origins: timeline ---------- */
+    .timeline { position: relative; max-width: 820px; margin: 0 auto; }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gold);
+    }
+
+    .event { position: relative; padding: 0 0 36px 60px; }
+
+    .event::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      background: var(--parchment);
+      border: 3px solid var(--crimson);
+      transform: rotate(45deg);
+    }
+
+    .event .year {
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .event h3 { font-weight: normal; font-size: 1.35rem; color: var(--lapis); margin: 2px 0 6px; }
+    .event p { color: var(--ink-soft); }
+
+    /* ---------- Masters: cards ---------- */
+    .alt-bg {
+      background: var(--parchment-dark);
+      border-top: 1px solid rgba(184, 134, 43, 0.4);
+      border-bottom: 1px solid rgba(184, 134, 43, 0.4);
+    }
+
+    .alt-bg .section-title .divider::after { background: var(--parchment-dark); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--parchment);
+      border: 1px solid var(--gold);
+      box-shadow: 0 6px 20px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px var(--shadow); }
+
+    .card-art {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--gold-light);
+      border-bottom: 3px double var(--gold);
+    }
+
+    .art-1 { background: linear-gradient(135deg, #3d2b1f, #7a5a3a); }
+    .art-2 { background: linear-gradient(135deg, #1f3a68, #4a6fa5); }
+    .art-3 { background: linear-gradient(135deg, #7a1f1f, #b5523b); }
+    .art-4 { background: linear-gradient(135deg, #2f4a2f, #6b8f5a); }
+
+    .card-body { padding: 22px; flex: 1; }
+    .card-body h3 { font-weight: normal; font-size: 1.4rem; color: var(--crimson); }
+    .card-body .dates { color: var(--gold); font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 10px; }
+    .card-body p { color: var(--ink-soft); font-size: 0.98rem; margin-bottom: 12px; }
+    .card-body .works { font-style: italic; font-size: 0.92rem; color: var(--lapis); }
+
+    /* ---------- Legacy ---------- */
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .legacy-item {
+      border-left: 4px solid var(--gold);
+      padding: 6px 0 6px 22px;
+    }
+
+    .legacy-item h3 { font-weight: normal; color: var(--lapis); font-size: 1.3rem; margin-bottom: 6px; }
+    .legacy-item p { color: var(--ink-soft); }
+
+    blockquote {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--crimson);
+      padding: 34px 24px;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 14px;
+      font-size: 1rem;
+      font-style: normal;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    /* ---------- Back to top & footer ---------- */
+    .back-top {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-top a {
+      color: var(--crimson);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      letter-spacing: 1px;
+    }
+
+    footer {
+      background: var(--ink);
+      color: #cdbf9f;
+      text-align: center;
+      padding: 36px 16px;
+      border-top: 3px solid var(--gold);
+      font-size: 0.92rem;
+    }
+
+    footer .logo { display: inline-block; margin-bottom: 8px; }
+
+    /* ---------- Dynamic features (JavaScript) ---------- */
+
+    /* Reading progress bar */
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--crimson), var(--gold-light));
+      z-index: 20;
+    }
+
+    /* Navigation shrinks after scrolling */
+    nav .nav-inner { transition: padding 0.3s ease; }
+    nav.scrolled .nav-inner { padding-top: 8px; padding-bottom: 8px; }
+
+    /* Active section link */
+    .nav-links a.active {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(217, 179, 92, 0.1);
+    }
+
+    /* Hamburger button (mobile only) */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--gold);
+      width: 44px;
+      height: 40px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      position: absolute;
+      left: 50%;
+      width: 22px;
+      height: 2px;
+      margin-left: -11px;
+      background: var(--gold-light);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .menu-toggle span { top: 50%; margin-top: -1px; }
+    .menu-toggle span::before,
+    .menu-toggle span::after { content: ""; left: 0; margin-left: 0; }
+    .menu-toggle span::before { top: -7px; }
+    .menu-toggle span::after { top: 7px; }
+
+    .menu-open .menu-toggle span { background: transparent; }
+    .menu-open .menu-toggle span::before { transform: translateY(7px) rotate(45deg); }
+    .menu-open .menu-toggle span::after { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Hero entrance animation */
+    .hero-content > * {
+      opacity: 0;
+      animation: rise 0.9s ease forwards;
+    }
+    .hero-content > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.45s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.6s; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .ornament { animation: rise 0.9s ease 0.3s forwards, glow 3s ease-in-out 1.2s infinite; }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: none; }
+      50% { text-shadow: 0 0 14px var(--gold-light); }
+    }
+
+    /* Reveal on scroll (only hidden when JS is running) */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .js .reveal.visible { opacity: 1; transform: none; }
+    .js .card.reveal.visible:hover { transform: translateY(-6px); }
+
+    /* Expandable cards */
+    .card { cursor: pointer; }
+    .card-more {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .card-more p { padding-top: 12px; border-top: 1px dashed var(--gold); margin-top: 12px; }
+    .card.open .card-more { max-height: 260px; }
+    .card-hint {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Rotating quote */
+    blockquote .quote-text,
+    blockquote cite { transition: opacity 0.6s ease; }
+    blockquote.fading .quote-text,
+    blockquote.fading cite { opacity: 0; }
+
+    /* Floating back-to-top button */
+    .to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 46px;
+      height: 46px;
+      border: 2px solid var(--gold);
+      background: var(--ink);
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 15;
+    }
+    .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+    .to-top:hover { background: var(--gold); color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: block; }
+      .nav-inner { flex-wrap: nowrap; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--ink);
+        border-bottom: 3px solid var(--gold);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .menu-open .nav-links { max-height: 300px; }
+      .nav-links a {
+        display: block;
+        padding: 14px 16px;
+        border: none;
+        border-top: 1px solid rgba(217, 179, 92, 0.2);
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header.hero::before { inset: 12px; }
+      section { padding: 64px 16px; }
+      blockquote { font-size: 1.2rem; }
+    }
+
+    /* Respect users who prefer less motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .hero-content > * { opacity: 1; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body id="top">
+
+  <div class="progress" id="progress"></div>
+
+  <!-- Navigation: the three links redirect to the three sections below -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">Rinascimento</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#origins">Origins</a></li>
+        <li><a href="#masters">The Masters</a></li>
+        <li><a href="#legacy">Legacy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Florence &middot; Rome &middot; Venice</p>
+      <h1>The <span>Rebirth</span> of Art</h1>
+      <div class="ornament">&#10022; &#10022; &#10022;</div>
+      <p>From the workshops of fourteenth-century Florence to the grand frescoes of the Vatican, discover how the Renaissance changed the way humanity saw itself and the world.</p>
+      <div class="btn-group">
+        <a href="#origins" class="btn primary">Begin the Journey</a>
+        <a href="#masters" class="btn">Meet the Masters</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Origins -->
+    <section id="origins">
+      <div class="section-title reveal">
+        <span class="number">Chapter I</span>
+        <h2>Origins of the Renaissance</h2>
+        <div class="divider"></div>
+      </div>
+
+      <p class="intro-text reveal">The word Renaissance means "rebirth." Between the 14th and 16th centuries, Italian artists and scholars rediscovered the art, literature and philosophy of ancient Greece and Rome. Supported by wealthy patrons such as the Medici family, they placed the human being at the centre of their work, a movement known as Humanism.</p>
+
+      <div class="timeline">
+        <div class="event reveal">
+          <span class="year">c. 1305</span>
+          <h3>Giotto Paints the Scrovegni Chapel</h3>
+          <p>Giotto di Bondone breaks with flat Byzantine tradition, giving his figures weight, emotion and a sense of real space. He is often called the father of Western painting.</p>
+        </div>
+        <div class="event reveal">
+          <span class="year">1401</span>
+          <h3>The Baptistery Doors Competition</h3>
+          <p>Florence holds a contest to design bronze doors for its Baptistery. Lorenzo Ghiberti wins; the event is often seen as the symbolic start of the Early Renaissance.</p>
+        </div>
+        <div class="event reveal">
+          <span class="year">c. 1415</span>
+          <h3>Brunelleschi and Linear Perspective</h3>
+          <p>Architect Filippo Brunelleschi demonstrates a mathematical method for creating depth on a flat surface, transforming painting forever.</p>
+        </div>
+        <div class="event reveal">
+          <span class="year">c. 1427</span>
+          <h3>Masaccio's Holy Trinity</h3>
+          <p>Masaccio applies perspective in a fresco at Santa Maria Novella, creating an illusion of architecture so convincing that viewers felt they could step inside it.</p>
+        </div>
+        <div class="event reveal">
+          <span class="year">c. 1440</span>
+          <h3>The Printing Press</h3>
+          <p>Johannes Gutenberg's invention spreads classical texts and new ideas across Europe, carrying the Renaissance far beyond Italy.</p>
+        </div>
+      </div>
+
+      <div class="back-top"><a href="#top">&uarr; Back to top</a></div>
+    </section>
+
+    <!-- Section 2: The Masters -->
+    <div class="alt-bg">
+      <section id="masters">
+        <div class="section-title reveal">
+          <span class="number">Chapter II</span>
+          <h2>The Great Masters</h2>
+          <div class="divider"></div>
+        </div>
+
+        <p class="intro-text reveal">The High Renaissance, roughly 1490 to 1527, produced some of the most celebrated artists in history. Their mastery of anatomy, light and composition set a standard that artists would follow for centuries.</p>
+
+        <div class="cards">
+          <article class="card reveal" tabindex="0" aria-expanded="false">
+            <div class="card-art art-1">&#9998;</div>
+            <div class="card-body">
+              <h3>Leonardo da Vinci</h3>
+              <p class="dates">1452 &ndash; 1519</p>
+              <p>Painter, engineer, anatomist and inventor, Leonardo was the ultimate "Renaissance man." He perfected <em>sfumato</em>, a soft blending of tones that gives his figures a lifelike, mysterious quality.</p>
+              <p class="works">Mona Lisa &middot; The Last Supper &middot; Vitruvian Man</p>
+              <div class="card-more"><p>Leonardo filled more than 7,000 pages of notebooks with studies of flight, water, anatomy and machines, all written in mirror script from right to left.</p></div>
+              <span class="card-hint">+ Did you know?</span>
+            </div>
+          </article>
+
+          <article class="card reveal" tabindex="0" aria-expanded="false">
+            <div class="card-art art-2">&#9874;</div>
+            <div class="card-body">
+              <h3>Michelangelo</h3>
+              <p class="dates">1475 &ndash; 1564</p>
+              <p>A sculptor above all, Michelangelo carved heroic figures from single blocks of marble and spent four years painting the ceiling of the Sistine Chapel while lying on scaffolding.</p>
+              <p class="works">David &middot; Pietà &middot; Sistine Chapel Ceiling</p>
+              <div class="card-more"><p>He considered himself a sculptor, not a painter. To carve David he took on a block of marble that other artists had abandoned as flawed.</p></div>
+              <span class="card-hint">+ Did you know?</span>
+            </div>
+          </article>
+
+          <article class="card reveal" tabindex="0" aria-expanded="false">
+            <div class="card-art art-3">&#10047;</div>
+            <div class="card-body">
+              <h3>Raphael</h3>
+              <p class="dates">1483 &ndash; 1520</p>
+              <p>Known for harmony, grace and clarity, Raphael blended the lessons of Leonardo and Michelangelo into serene compositions admired as the ideal of classical beauty.</p>
+              <p class="works">The School of Athens &middot; Sistine Madonna</p>
+              <div class="card-more"><p>Raphael ran one of the largest workshops in Rome and was chief architect of St Peter's Basilica. He died on his 37th birthday.</p></div>
+              <span class="card-hint">+ Did you know?</span>
+            </div>
+          </article>
+
+          <article class="card reveal" tabindex="0" aria-expanded="false">
+            <div class="card-art art-4">&#9728;</div>
+            <div class="card-body">
+              <h3>Sandro Botticelli</h3>
+              <p class="dates">c. 1445 &ndash; 1510</p>
+              <p>A favourite of the Medici court, Botticelli brought mythological subjects back to painting with flowing lines and poetic elegance.</p>
+              <p class="works">The Birth of Venus &middot; Primavera</p>
+              <div class="card-more"><p>Late in life Botticelli fell under the influence of the preacher Savonarola and is said to have burned some of his own secular paintings.</p></div>
+              <span class="card-hint">+ Did you know?</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="back-top"><a href="#top">&uarr; Back to top</a></div>
+      </section>
+    </div>
+
+    <!-- Section 3: Legacy -->
+    <section id="legacy">
+      <div class="section-title reveal">
+        <span class="number">Chapter III</span>
+        <h2>A Lasting Legacy</h2>
+        <div class="divider"></div>
+      </div>
+
+      <p class="intro-text reveal">By the mid-16th century the Renaissance had spread to Flanders, Germany, France and Spain, inspiring artists such as Albrecht Dürer and Jan van Eyck. Its ideas still shape how we make and understand art today.</p>
+
+      <div class="legacy-grid">
+        <div class="legacy-item reveal">
+          <h3>Realism and Perspective</h3>
+          <p>Linear perspective, anatomical accuracy and the careful study of light became the foundation of academic art training for over four hundred years.</p>
+        </div>
+        <div class="legacy-item reveal">
+          <h3>The Artist as Genius</h3>
+          <p>Artists rose from anonymous craftsmen to celebrated individuals. Giorgio Vasari's <em>Lives of the Artists</em> (1550) became the first great work of art history.</p>
+        </div>
+        <div class="legacy-item reveal">
+          <h3>Humanism and Science</h3>
+          <p>The belief that people could understand the world through observation helped pave the way for the Scientific Revolution.</p>
+        </div>
+        <div class="legacy-item reveal">
+          <h3>Mannerism and Beyond</h3>
+          <p>Later artists stretched Renaissance rules into Mannerism, which in turn led to the drama of the Baroque, proof that the movement kept evolving.</p>
+        </div>
+      </div>
+
+      <blockquote class="reveal" id="quote" aria-live="polite">
+        <span class="quote-text">"Every block of stone has a statue inside it, and it is the task of the sculptor to discover it."</span>
+        <cite>&mdash; Attributed to Michelangelo</cite>
+      </blockquote>
+
+      <div class="back-top"><a href="#top">&uarr; Back to top</a></div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#top" class="logo">Rinascimento</a>
+    <p>A brief history of Renaissance art &middot; Made with HTML &amp; CSS only</p>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
+  <script>
+    (function () {
+      var nav = document.querySelector("nav");
+      var toggle = document.getElementById("menuToggle");
+      var links = document.querySelectorAll(".nav-links a");
+      var progress = document.getElementById("progress");
+      var toTop = document.getElementById("toTop");
+
+      /* 1. Mobile menu: open / close */
+      function setMenu(open) {
+        nav.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", open);
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      toggle.addEventListener("click", function () {
+        setMenu(!nav.classList.contains("menu-open"));
+      });
+      links.forEach(function (link) {
+        link.addEventListener("click", function () { setMenu(false); });
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setMenu(false);
+      });
+
+      /* 2. Scroll effects: progress bar, smaller nav, back-to-top button */
+      function onScroll() {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var y = window.scrollY;
+        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+        nav.classList.toggle("scrolled", y > 40);
+        toTop.classList.toggle("show", y > 600);
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      toTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      /* 3. Reveal elements when they enter the screen */
+      var revealItems = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealItems.forEach(function (el) { revealObserver.observe(el); });
+      } else {
+        revealItems.forEach(function (el) { el.classList.add("visible"); });
+      }
+
+      /* 4. Highlight the menu link of the section on screen */
+      if ("IntersectionObserver" in window) {
+        var sectionObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            links.forEach(function (link) {
+              link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+            });
+          });
+        }, { rootMargin: "-45% 0px -50% 0px" });
+        document.querySelectorAll("main section[id]").forEach(function (sec) {
+          sectionObserver.observe(sec);
+        });
+      }
+
+      /* 5. Cards: click (or Enter) to show a fun fact */
+      document.querySelectorAll(".card").forEach(function (card) {
+        var hint = card.querySelector(".card-hint");
+        function flip() {
+          var open = card.classList.toggle("open");
+          card.setAttribute("aria-expanded", open);
+          hint.textContent = open ? "\u2212 Show less" : "+ Did you know?";
+        }
+        card.addEventListener("click", flip);
+        card.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); }
+        });
+      });
+
+      /* 6. Rotating quotes */
+      var quotes = [
+        ["Every block of stone has a statue inside it, and it is the task of the sculptor to discover it.", "Attributed to Michelangelo"],
+        ["Simplicity is the ultimate sophistication.", "Attributed to Leonardo da Vinci"],
+        ["Painting is poetry that is seen rather than felt.", "Leonardo da Vinci"],
+        ["I saw the angel in the marble and carved until I set him free.", "Attributed to Michelangelo"]
+      ];
+      var quote = document.getElementById("quote");
+      var quoteText = quote.querySelector(".quote-text");
+      var quoteCite = quote.querySelector("cite");
+      var current = 0;
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduceMotion) {
+        setInterval(function () {
+          quote.classList.add("fading");
+          setTimeout(function () {
+            current = (current + 1) % quotes.length;
+            quoteText.textContent = "\u201C" + quotes[current][0] + "\u201D";
+            quoteCite.textContent = "\u2014 " + quotes[current][1];
+            quote.classList.remove("fading");
+          }, 600);
+        }, 6000);
+      }
+    })();
+  </script>
+
+</body>
+</html>
