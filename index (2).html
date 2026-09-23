@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Renaissance Art History</title>
   <meta name="description" content="A short journey through the history of Renaissance art: its origins, its great masters and its lasting legacy.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root {
       --parchment: #f4ead5;
@@ -624,7 +625,7 @@
         <p class="intro-text reveal">The High Renaissance, roughly 1490 to 1527, produced some of the most celebrated artists in history. Their mastery of anatomy, light and composition set a standard that artists would follow for centuries.</p>
 
         <div class="cards">
-          <article class="card reveal" tabindex="0" aria-expanded="false">
+          <<article class="card" data-aos="flip-left" tabindex="0" aria-expanded="false">
             <div class="card-art art-1">&#9998;</div>
             <div class="card-body">
               <h3>Leonardo da Vinci</h3>
@@ -721,7 +722,7 @@
   </footer>
 
   <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     (function () {
       var nav = document.querySelector("nav");
@@ -831,6 +832,8 @@
       }
     })();
   </script>
-
+  <script>
+    AOS.init({ duration: 900, once: true });
+  </script>
 </body>
 </html>
