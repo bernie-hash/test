@@ -18,9 +18,8 @@
   <meta property="og:image" content="https://villamagnamza.com.ar/wp-content/uploads/2025/05/DSC_1565-Editar-min-scaled.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- EDITAR: reemplazar por el favicon nuevo -->
-  <link rel="icon" href="https://villamagnamza.com.ar/wp-content/uploads/2024/02/cropped-villamagna-mendoza-favicon-32x32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="https://villamagnamza.com.ar/wp-content/uploads/2024/02/cropped-villamagna-mendoza-favicon-180x180.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
 
   <!-- Datos estructurados para Google (alojamiento) -->
   <script type="application/ld+json">
@@ -29,6 +28,7 @@
     "@type": "LodgingBusiness",
     "name": "VillaMagna Potrerillos",
     "url": "https://villamagnamza.com.ar/",
+    "logo": "https://villamagnamza.com.ar/img/logo-claro.png",
     "email": "villamagna.mza@gmail.com",
     "image": "https://villamagnamza.com.ar/wp-content/uploads/2025/05/DSC_1565-Editar-min-scaled.jpg",
     "address": { "@type": "PostalAddress", "addressLocality": "Potrerillos", "addressRegion": "Mendoza", "addressCountry": "AR" },
@@ -151,22 +151,19 @@
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
     .nav.scrolled, .nav.open { background: var(--pine-dark); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+    .nav.scrolled .nav-inner { height: 68px; }
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 80px;
       gap: 16px;
+      transition: height 0.3s ease;
     }
-    /* EDITAR: reemplazar el texto por el logo nuevo, por ej. <img src="img/logo.svg" alt="VillaMagna"> */
-    .brand {
-      font-family: var(--font-title);
-      font-size: 1.5rem;
-      color: var(--white);
-      text-decoration: none;
-      letter-spacing: 0.5px;
-    }
-    .brand span { color: var(--sand); font-style: italic; }
+    .brand { display: block; line-height: 0; flex-shrink: 0; }
+    .brand img { height: 54px; width: auto; transition: height 0.3s ease; }
+    .nav.scrolled .brand img { height: 46px; }
+    footer .brand img { height: 80px; }
 
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a {
@@ -623,7 +620,7 @@
       .nav-cta { display: none; }
       .nav-links {
         position: absolute;
-        top: 72px;
+        top: 100%;
         left: 0;
         right: 0;
         flex-direction: column;
@@ -646,7 +643,8 @@
       .gallery-main .swiper-slide { aspect-ratio: 4 / 3; }
       .gallery-main .swiper-button-next, .gallery-main .swiper-button-prev { display: none; }
       .lang button { padding: 6px 9px; }
-      .brand { font-size: 1.3rem; }
+      .brand img { height: 44px; }
+      .nav.scrolled .brand img { height: 40px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -664,7 +662,7 @@
   <!-- ============ NAVEGACIÓN ============ -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#inicio" class="brand">Villa<span>Magna</span></a>
+      <a href="#inicio" class="brand" aria-label="VillaMagna - Inicio"><img src="img/logo-claro.png" alt="VillaMagna" width="600" height="276"></a>
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#la-casa" data-i18n="nav.house">La casa</a></li>
@@ -905,7 +903,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="#inicio" class="brand">Villa<span>Magna</span></a>
+          <a href="#inicio" class="brand" aria-label="VillaMagna - Inicio"><img src="img/logo-claro.png" alt="VillaMagna" width="600" height="276"></a>
           <p style="margin-top:12px;max-width:320px" data-i18n="foot.text">Casa de alquiler temporario en Potrerillos, Mendoza, Argentina.</p>
         </div>
         <div>
