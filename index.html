@@ -183,6 +183,9 @@
   .case-body ul { padding-left: 18px; color: var(--gray); font-size: 15px; }
   .case-body li { margin-bottom: 8px; }
   .case-body li::marker { color: var(--green); }
+  .case-body li ul { margin-top: 8px; }
+  .case-body li li { margin-bottom: 4px; }
+  .case-body code { font-family: ui-monospace, Consolas, monospace; font-size: .88em; background: var(--green-soft); color: var(--green-dark); padding: 1px 6px; border-radius: 4px; overflow-wrap: anywhere; }
   .note {
     margin-top: 18px; font-size: 13px; color: var(--gray); background: var(--bg-alt);
     border-left: 3px solid var(--green); padding: 10px 14px; border-radius: 0 8px 8px 0;
@@ -426,14 +429,26 @@
           <div class="block">
             <h4><span class="es">Mi rol</span><span class="en">My role</span></h4>
             <ul class="es">
-              <li>Gestión diaria de las campañas de ventas en Meta Ads, optimizadas a compras.</li>
-              <li>Prueba de audiencias Advantage+ y lookalike, con campañas separadas por promoción.</li>
-              <li>Aumento progresivo del presupuesto según el rendimiento de cada campaña.</li>
+              <li>Diseñé y testeé estrategias de audiencias: Advantage+ sin segmentación manual, audiencias in-market y lookalikes construidas a partir de bases de datos de clientes calientes y tibios.</li>
+              <li>Armé un esquema de remarketing full funnel:
+                <ul>
+                  <li><b>Frío:</b> interacciones con el perfil en redes sociales y visitas al sitio.</li>
+                  <li><b>Tibio:</b> seguidores de Instagram y eventos <code>view_item_list</code> y <code>view_item</code>.</li>
+                  <li><b>Caliente:</b> compradores, abandonos de carrito y de <code>add_payment_info</code>, y suscriptores del newsletter.</li>
+                </ul>
+              </li>
+              <li>Escalé el presupuesto de forma progresiva según el rendimiento de cada campaña.</li>
             </ul>
             <ul class="en">
-              <li>Daily management of sales campaigns on Meta Ads, optimized for purchases.</li>
-              <li>Testing Advantage+ and lookalike audiences, with separate campaigns per promotion.</li>
-              <li>Gradual budget increases based on each campaign's performance.</li>
+              <li>Designed and tested audience strategies: Advantage+ with no manual targeting, in-market audiences, and lookalikes built from hot and warm customer databases.</li>
+              <li>Built a full-funnel remarketing structure:
+                <ul>
+                  <li><b>Cold:</b> social profile interactions and website visits.</li>
+                  <li><b>Warm:</b> Instagram followers and <code>view_item_list</code> and <code>view_item</code> events.</li>
+                  <li><b>Hot:</b> purchasers, abandoned carts and abandoned <code>add_payment_info</code>, and newsletter subscribers.</li>
+                </ul>
+              </li>
+              <li>Progressively scaled the budget based on each campaign's performance.</li>
             </ul>
           </div>
           <div>
@@ -507,8 +522,8 @@
         </div>
         <h3><span class="es">ROI de 5233 % captando compradores de alta intención en el sector inmobiliario</span><span class="en">5,233% ROI by attracting high-intent buyers in real estate</span></h3>
         <p class="case-context">
-          <span class="es">Campaña de Google Ads para atraer clientes potenciales con alta intención de compra de un desarrollo inmobiliario en Puebla, México. La estrategia priorizó la eficiencia de conversión en todo el embudo, desde la captación del contacto hasta la reserva y la compra de la propiedad.</span>
-          <span class="en">A Google Ads campaign to attract high-intent leads for a real estate development in Puebla, Mexico. The strategy prioritized conversion efficiency across the whole funnel, from lead capture to property reservation and purchase.</span>
+          <span class="es">Estrategia multiplataforma (Google Ads y Meta Ads) para atraer clientes potenciales con alta intención de compra de un desarrollo inmobiliario en Puebla, México. Las ventas llegaron desde Google Ads. La estrategia priorizó la eficiencia de conversión en todo el embudo, desde la captación del contacto hasta la reserva y la compra de la propiedad.</span>
+          <span class="en">A cross-platform strategy (Google Ads and Meta Ads) to attract high-intent leads for a real estate development in Puebla, Mexico. The sales came from Google Ads. The strategy prioritized conversion efficiency across the whole funnel, from lead capture to property reservation and purchase.</span>
         </p>
         <div class="kpis">
           <div class="kpi"><strong class="es">5233 %</strong><strong class="en">5,233%</strong><span>ROI</span></div>
@@ -519,14 +534,14 @@
           <div class="block">
             <h4><span class="es">Mi rol</span><span class="en">My role</span></h4>
             <ul class="es">
-              <li>Ejecución y optimización diaria de la campaña de generación de leads.</li>
-              <li>Keyword research y segmentación.</li>
-              <li>Reportes semanales y mensuales con conclusiones y planes de acción.</li>
+              <li>Realicé la investigación de mercado desde cero: era una empresa nueva y no había datos históricos.</li>
+              <li>Desarrollé la estrategia de marketing integral entre Google Ads y Meta Ads: keyword research para búsqueda y audiencias in-market para Meta.</li>
+              <li>Diseñé la estrategia de lanzamiento, con períodos de prueba específicos y ajustes posteriores planificados (en base a probabilidades).</li>
             </ul>
             <ul class="en">
-              <li>Daily execution and optimization of the lead generation campaign.</li>
-              <li>Keyword research and segmentation.</li>
-              <li>Weekly and monthly reports with conclusions and action plans.</li>
+              <li>Conducted market research from scratch: the company was new and had no historical data.</li>
+              <li>Developed an integrated marketing strategy across Google Ads and Meta Ads: keyword research for search and in-market audiences for Meta.</li>
+              <li>Designed the launch strategy, with specific test periods and follow-up adjustments planned (based on probabilities).</li>
             </ul>
           </div>
           <div class="block">
@@ -583,16 +598,16 @@
           <div class="block">
             <h4><span class="es">Mi rol</span><span class="en">My role</span></h4>
             <ul class="es">
-              <li>Ejecución y optimización diaria de campañas de generación de leads en Meta Ads.</li>
-              <li>Segmentación avanzada con audiencias frías, tibias y calientes.</li>
-              <li>Integración del Pixel y la API de Meta con flujos automatizados en el CRM (GoHighLevel), para seguir cada contacto hasta la venta.</li>
-              <li>Reportes semanales y mensuales con conclusiones y planes de acción.</li>
+              <li>Ejecuté y optimicé a diario las campañas de generación de leads en Meta Ads.</li>
+              <li>Armé una segmentación avanzada con audiencias frías, tibias y calientes.</li>
+              <li>Integré el Pixel y la API de Meta con flujos automatizados en el CRM (GoHighLevel), para seguir cada contacto hasta la venta.</li>
+              <li>Elaboré reportes semanales y mensuales con conclusiones y planes de acción.</li>
             </ul>
             <ul class="en">
-              <li>Daily execution and optimization of lead generation campaigns on Meta Ads.</li>
-              <li>Advanced segmentation with cold, warm, and hot audiences.</li>
-              <li>Integration of the Meta Pixel and API with automated workflows in the CRM (GoHighLevel), to follow each lead through to the sale.</li>
-              <li>Weekly and monthly reports with conclusions and action plans.</li>
+              <li>Ran and optimized lead generation campaigns on Meta Ads daily.</li>
+              <li>Built advanced segmentation with cold, warm, and hot audiences.</li>
+              <li>Integrated the Meta Pixel and API with automated workflows in the CRM (GoHighLevel), to follow each lead through to the sale.</li>
+              <li>Produced weekly and monthly reports with conclusions and action plans.</li>
             </ul>
           </div>
           <div class="block">
@@ -645,14 +660,14 @@
           <div class="block">
             <h4><span class="es">Mi rol</span><span class="en">My role</span></h4>
             <ul class="es">
-              <li>Investigación de mercado desde cero.</li>
-              <li>Keyword research y estructura de campañas de búsqueda, combinando palabras clave de alta intención, informacionales y navegacionales.</li>
-              <li>Configuración y medición de las conversiones principales: envío de formulario y reserva de reunión por Calendly.</li>
+              <li>Hice la investigación de mercado desde cero.</li>
+              <li>Realicé el keyword research y armé la estructura de las campañas de búsqueda, combinando palabras clave de alta intención, informacionales y navegacionales.</li>
+              <li>Configuré y medí las conversiones principales: envío de formulario y reserva de reunión por Calendly.</li>
             </ul>
             <ul class="en">
-              <li>Market research from scratch.</li>
-              <li>Keyword research and search campaign structure, combining high-intent, informational, and navigational keywords.</li>
-              <li>Setup and tracking of the main conversions: form submissions and meeting bookings via Calendly.</li>
+              <li>Conducted market research from scratch.</li>
+              <li>Did the keyword research and built the search campaign structure, combining high-intent, informational, and navigational keywords.</li>
+              <li>Set up and tracked the main conversions: form submissions and meeting bookings via Calendly.</li>
             </ul>
           </div>
           <div class="block">
