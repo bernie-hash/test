@@ -234,6 +234,49 @@
   .lb-stage.zoomed img { max-width: none; max-height: none; cursor: zoom-out; }
   .lb-hint { text-align: center; color: #999; font-size: 12px; padding-bottom: 10px; }
 
+  /* ---------- Tracking & Analytics ---------- */
+  .tracking-lead { font-size: 17px; color: var(--gray); max-width: 760px; margin-top: -16px; }
+  .flow-wrap { margin-top: 40px; }
+  .flow-wrap > h3, .track-grid-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #444; margin-bottom: 16px;
+  }
+  .flow { display: flex; align-items: stretch; gap: 0; }
+  .flow-step {
+    flex: 1 1 0; min-width: 0; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 16px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .flow-step.core { background: var(--green); border-color: var(--green); color: #fff; }
+  .flow-label { font-family: "Montserrat"; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--green-text); }
+  .flow-step.core .flow-label { color: #bfe3d4; }
+  .flow-items { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.35; }
+  .flow-items b { font-weight: 600; }
+  .flow-items small { display: block; font-size: 12px; color: var(--gray-light); }
+  .flow-step.core .flow-items small { color: #cfe8de; }
+  .flow-arrow { flex: 0 0 28px; display: grid; place-items: center; color: var(--green); }
+  .flow-arrow svg { width: 18px; height: 18px; }
+  .track-grid-title { margin-top: 48px; }
+  .track-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .track-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: #fff; }
+  .track-card.health { border: 2px solid var(--green); }
+  .track-card h4 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .track-card ul { padding-left: 18px; color: var(--gray); font-size: 14.5px; }
+  .track-card li { margin-bottom: 6px; }
+  .track-card li::marker { color: var(--green); }
+  .track-close { margin-top: 28px; font-size: 15px; color: var(--gray); }
+  .track-close b { color: var(--green-text); }
+  @media (max-width: 960px) {
+    .flow { flex-direction: column; }
+    .flow-step { flex-direction: row; align-items: baseline; gap: 14px; padding: 12px 14px; border-radius: 10px; }
+    .flow-label { flex: 0 0 112px; font-size: 10px; letter-spacing: 1.1px; }
+    .flow-items { flex: 1; min-width: 0; flex-direction: row; flex-wrap: wrap; gap: 4px 14px; font-size: 13.5px; }
+    .flow-items small { display: inline; font-size: 12px; }
+    .flow-items small::before { content: " · "; }
+    .flow-arrow { flex-basis: 16px; }
+    .flow-arrow svg { width: 14px; height: 14px; transform: rotate(90deg); }
+    .track-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) { .track-grid { grid-template-columns: 1fr; } }
+
   /* ---------- Skills ---------- */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
   .skill-group h3 {
@@ -304,6 +347,7 @@
       <ul class="nav-links">
         <li><a href="#sobre-mi"><span class="es">Sobre mí</span><span class="en">About</span></a></li>
         <li><a href="#casos"><span class="es">Casos</span><span class="en">Case studies</span></a></li>
+        <li><a href="#tracking">Tracking</a></li>
         <li><a href="#skills"><span class="es">Herramientas</span><span class="en">Skills</span></a></li>
         <li><a href="#contacto"><span class="es">Contacto</span><span class="en">Contact</span></a></li>
       </ul>
@@ -700,14 +744,97 @@
     </div>
   </section>
 
+  <!-- TRACKING -->
+  <section id="tracking">
+    <div class="wrap">
+      <div class="section-title reveal"><h2>Tracking &amp; Analytics</h2></div>
+      <p class="tracking-lead reveal">
+        <span class="es">Meta y Google optimizan con los datos que reciben: si un evento falla o se duplica, las campañas optimizan sobre información equivocada. Por eso implemento y mantengo la medición completa de cada cuenta, desde la configuración inicial hasta el control diario de que todo siga registrando bien.</span>
+        <span class="en">Meta and Google optimize on the data they receive: if an event breaks or fires twice, campaigns optimize on the wrong information. That's why I implement and maintain each account's full measurement setup, from the initial configuration to day-to-day checks that everything keeps recording correctly.</span>
+      </p>
+
+      <div class="flow-wrap reveal">
+        <h3><span class="es">Cómo fluyen los datos</span><span class="en">How the data flows</span></h3>
+        <div class="flow">
+          <div class="flow-step">
+            <span class="flow-label"><span class="es">Sitio web</span><span class="en">Website</span></span>
+            <ul class="flow-items"><li><b>Shopify</b></li><li><b>WordPress</b></li><li><span class="es">Formularios</span><span class="en">Forms</span></li></ul>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div class="flow-step">
+            <span class="flow-label"><span class="es">Consentimiento</span><span class="en">Consent</span></span>
+            <ul class="flow-items"><li><b><span class="es">Banner de cookies</span><span class="en">Cookie banner</span></b></li><li><b>Consent Mode v2</b></li></ul>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div class="flow-step core">
+            <span class="flow-label"><span class="es">Recolección</span><span class="en">Collection</span></span>
+            <ul class="flow-items"><li><b>Google Tag Manager</b><small><span class="es">eventos y etiquetas</span><span class="en">events and tags</span></small></li></ul>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div class="flow-step">
+            <span class="flow-label"><span class="es">Plataformas</span><span class="en">Platforms</span></span>
+            <ul class="flow-items">
+              <li><b>GA4</b><small><span class="es">eventos clave</span><span class="en">key events</span></small></li>
+              <li><b>Google Ads</b><small><span class="es">conversiones + Conversiones Mejoradas</span><span class="en">conversions + Enhanced Conversions</span></small></li>
+              <li><b>Meta</b><small>Pixel + API</small></li>
+            </ul>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <div class="flow-step">
+            <span class="flow-label"><span class="es">Análisis</span><span class="en">Analysis</span></span>
+            <ul class="flow-items"><li><b>Looker Studio</b><small><span class="es">reportes</span><span class="en">reports</span></small></li><li><b>CRM</b><small>GoHighLevel</small></li></ul>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="track-grid-title reveal"><span class="es">Qué hago</span><span class="en">What I do</span></h3>
+      <div class="track-grid">
+        <div class="track-card reveal">
+          <h4><span class="es">Puesta en marcha de cuentas</span><span class="en">Account setup</span></h4>
+          <ul class="es"><li>Creo y configuro cuentas de Meta Ads, Google Ads, TikTok Ads, GA4 y Google Tag Manager.</li></ul>
+          <ul class="en"><li>I create and configure Meta Ads, Google Ads, TikTok Ads, GA4, and Google Tag Manager accounts.</li></ul>
+        </div>
+        <div class="track-card reveal">
+          <h4><span class="es">Integraciones</span><span class="en">Integrations</span></h4>
+          <ul class="es"><li>Conecto el Pixel de Meta, GA4 y GTM con el sitio web.</li><li>Vinculo Google Ads, Shopify y WordPress.</li></ul>
+          <ul class="en"><li>I connect the Meta Pixel, GA4, and GTM to the website.</li><li>I link Google Ads, Shopify, and WordPress.</li></ul>
+        </div>
+        <div class="track-card reveal">
+          <h4><span class="es">Consentimiento y privacidad</span><span class="en">Consent and privacy</span></h4>
+          <ul class="es"><li>Configuro el banner de cookies.</li><li>Implemento Consent Mode v2.</li></ul>
+          <ul class="en"><li>I set up the cookie consent banner.</li><li>I implement Consent Mode v2.</li></ul>
+        </div>
+        <div class="track-card reveal">
+          <h4><span class="es">Eventos y conversiones</span><span class="en">Events and conversions</span></h4>
+          <ul class="es"><li>Creo eventos clave en GA4 y conversiones en Google Ads.</li><li>Configuro Conversiones Mejoradas.</li></ul>
+          <ul class="en"><li>I create key events in GA4 and conversions in Google Ads.</li><li>I set up Enhanced Conversions.</li></ul>
+        </div>
+        <div class="track-card reveal">
+          <h4><span class="es">SEO técnico</span><span class="en">Technical SEO</span></h4>
+          <ul class="es"><li>En Search Console: envío del sitemap, control de indexación e instalación de etiquetas canonical.</li></ul>
+          <ul class="en"><li>In Search Console: sitemap submission, indexing checks, and canonical tag setup.</li></ul>
+        </div>
+        <div class="track-card health reveal">
+          <h4>Conversion Health</h4>
+          <ul class="es"><li>Mantengo el etiquetado de GTM y GA4.</li><li>Diagnostico y resuelvo problemas de tracking: formularios, eventos de conversión e integraciones de terceros.</li><li>Audito cuentas para detectar mediciones rotas.</li></ul>
+          <ul class="en"><li>I maintain GTM and GA4 tagging.</li><li>I diagnose and fix tracking issues: forms, conversion events, and third-party integrations.</li><li>I audit accounts to catch broken measurement.</li></ul>
+        </div>
+      </div>
+      <p class="track-close reveal">
+        <span class="es"><b>Esta es la base que hace confiables los números de los casos de arriba.</b></span>
+        <span class="en"><b>This is the foundation that makes the numbers in the case studies above reliable.</b></span>
+      </p>
+    </div>
+  </section>
+
   <!-- SKILLS -->
-  <section id="skills">
+  <section class="cases" id="skills">
     <div class="wrap">
       <div class="section-title reveal"><h2><span class="es">Herramientas</span><span class="en">Skills &amp; tools</span></h2></div>
       <div class="skills-grid">
         <div class="skill-group reveal">
           <h3><span class="es">Plataformas</span><span class="en">Platforms</span></h3>
-          <div class="chips"><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">TikTok Ads</span><span class="chip">Google Analytics 4</span><span class="chip">Looker Studio</span><span class="chip">Google Tag Manager</span><span class="chip">Search Console</span><span class="chip">Google Merchant Center</span><span class="chip">WordPress</span></div>
+          <div class="chips"><span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">TikTok Ads</span><span class="chip">Google Analytics 4</span><span class="chip">Looker Studio</span><span class="chip">Google Tag Manager</span><span class="chip">Search Console</span><span class="chip">Consent Mode v2</span><span class="chip">Google Merchant Center</span><span class="chip">WordPress</span></div>
         </div>
         <div class="skill-group reveal">
           <h3><span class="es">Desarrollo web</span><span class="en">Web development</span></h3>
